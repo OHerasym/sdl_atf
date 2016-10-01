@@ -30,7 +30,16 @@ table
 @classmod std.container
 ]]
 
-local _DEBUG = require "atf.stdlib.std.debug_init"._DEBUG
+local _DEBUG = rawget (_G, "_DEBUG")
+
+  _DEBUG = {
+    argcheck = true,
+    call = false,
+    deprecate = nil,
+    level = 1,
+  }
+
+-- local _DEBUG = require "atf.stdlib.std.debug_init"._DEBUG
 
 local base = require "atf.stdlib.std.base"
 local debug = require "atf.stdlib.std.debug"
