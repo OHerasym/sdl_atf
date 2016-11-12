@@ -3,7 +3,7 @@
 PROJECT=atf
 
 #Please setup QMAKE enviroment variable
-#QMAKE=/home/arv/Qt/5.4/gcc/bin/qmake
+QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 
 SOURCES= src/lua_interpreter.cc \
 	src/main.cc \
