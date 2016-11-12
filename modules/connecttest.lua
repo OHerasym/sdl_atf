@@ -315,7 +315,7 @@ function module:runSDL()
   local result, errmsg = SDL:StartSDL(config.pathToSDL, config.SDL, config.ExitOnCrash)
   if not result then
     SDL:DeleteFile()
-    quit(1)
+    quit(exit_codes.aborted)
   end
   SDL.autoStarted = true
 end
@@ -500,7 +500,7 @@ function module:initHMI_onReady()
       rows = rows or 1
     }
   end
-  local function image_field(name, width, heigth)
+  local function image_field(name, width, height)
     return
     {
       name = name,
@@ -640,7 +640,7 @@ function module:connectMobile()
   :Times(AnyNumber())
   :Do(function()
       print("Disconnected!!!")
-      quit(1)
+      quit(exit_codes.aborted)
     end)
   self.mobileConnection:Connect()
   return EXPECT_EVENT(events.connectedEvent, "Connected")
